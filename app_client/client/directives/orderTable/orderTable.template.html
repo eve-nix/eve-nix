@@ -1,0 +1,44 @@
+<!--
+  Chris Clifford
+  1/2019
+
+  /directives/orderTable.template.html
+-->
+
+<div class="order-table">
+  <table>
+    <thead>
+      <tr>
+        <th>Sec</th>
+        <th>System</th>
+        <th>Price</th>
+        <th>Volume</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td>
+          <input ng-model="f.system_id">
+        </td>
+        <td>
+          <input ng-model="f.price">
+        </td>
+        <td>
+          <input ng-model="f.volume_remain">
+        </td>
+        <td>
+          <input ng-model="f.is_buy_order">
+        </td>
+      </tr>
+      <tr ng-repeat="order in content | filter:f">
+        <td>sec</td>
+        <td>{{ order.system_id }}</td>
+        <td>{{ order.price }}</td>
+        <td>{{ order.volume_remain }}</td>
+        <td>{{ order.is_buy_order }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

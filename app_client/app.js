@@ -14,7 +14,12 @@ app.set('view engine', 'jade');
 
 const appFiles = [
   'app.angular.js',
-  'client/controllers/home.controller.js'
+  'client/controllers/home.controller.js',
+  'client/directives/footerGeneric/footerGeneric.directive.js',
+  'client/directives/navigation/navigation.directive.js',
+  'client/directives/orderTable/orderTable.directive.js',
+  'client/directives/pageHeader/pageHeader.directive.js',
+  'client/services/orders.service.js'
 ]
 
 const uglified = uglifyJs.minify( appFiles );
