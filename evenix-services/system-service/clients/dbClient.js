@@ -12,7 +12,7 @@ module.exports = function ( spec ) {
 
   const connect = function() {
     return new Promise( ( resolve, reject ) => {
-      conn.connect( async err => {
+      conn.connect( err => {
         if (err) {
           reject(err);
         } else {
@@ -27,7 +27,7 @@ module.exports = function ( spec ) {
 
       if ( conn.state !== 'connected' &&
            conn.state !== 'authenticated') {
-        await connect();
+          await connect();
       }
 
       if ( conn.state !== 'connected' &&
