@@ -5,7 +5,7 @@ Created by Chris Clifford \
 `crc339@drexel.edu`
 
 eve-nix is a responsive website for viewing in-game market orders for
-EvE Online.
-
-The website is built on a set of microservices powered by GraphQL and MySQL.
+EvE Online. \
+The website is built on a set of microservices powered by GraphQL and MySQL. \
+The actual webpage was build using ReactJS.
 
