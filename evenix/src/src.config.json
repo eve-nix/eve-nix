@@ -1,0 +1,14 @@
+{
+    "ordersService": {
+      "host": "http://localhost:3001",
+      "route": "/api"
+    },
+    "typesService": {
+      "host": "https://localhost:3002",
+      "route": "/api"
+    },
+    "systemsService": {
+      "host": "https://localhost:3004",
+      "route": "/api"
+    }
+}

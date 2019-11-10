@@ -1,0 +1,8 @@
+{
+  "port": "3004",
+  "env": "prod",
+  "whitelist": [
+    "http://eve-nix.com",
+    "eve-nix.com"
+  ]
+}

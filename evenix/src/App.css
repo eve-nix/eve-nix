@@ -1,0 +1,11 @@
+:root {
+  --bg-color: #6e92aa;
+  --primary-color: #7373ca;
+}
+
+.text-layout {
+  text-decoration: none;
+  font-family: Calibri;
+  margin: 5px;
+}
+
