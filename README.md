@@ -1,5 +1,5 @@
 [![eve-nix](http://eve-nix.com/nix-logo.gif)](http://www.eve-nix.com)
-Hosted at [www.eve-nix.com/](www.eve-nix.com/)
+Hosted at [www.eve-nix.com/](http://www.eve-nix.com/)
 
 Created by Chris Clifford \
 `crc339@drexel.edu`
