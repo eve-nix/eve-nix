@@ -3,6 +3,6 @@
   "env": "prod",
   "whitelist": [
     "http://www.eve-nix.com",
-    "eve-nix.com"
+    "http://eve-nix.com"
   ]
 }
