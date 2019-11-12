@@ -6,10 +6,13 @@
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 2;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
 }
 
 .Navbar-item {
-  display: block;
   text-align: center;
   padding: 5px 10px;
   background-color: var(--bg-color);
@@ -27,5 +30,11 @@
 
 .Navbar-right {
   float: right;
+}
+
+@media all and (max-width: 516px) {
+  #Navbar {
+    justify-content: center;
+  }
 }
 

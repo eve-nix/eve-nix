@@ -14,34 +14,6 @@ class ItemSearch extends Component {
     };
   }
 
-  render() {
-    return(
-      <div id="ItemSearch" className="Navbar-item Navbar-right">
-        <div className="input-group">
-        <input type="text"
-               className="form-control"
-               list="ItemSearchList"
-               onChange={this.handleChange}></input>
-        <datalist id="ItemSearchList">
-          {
-            this.state.types.map( (value, index) => {
-              return <option key={index} value={value.name}>
-                     </option>
-            })
-          }
-        </datalist>
-        <div className="input-group-append">
-          <button type="button"
-                  className="btn btn-secondary"
-                  onClick={this.getOrders}>
-            Orders
-          </button>
-        </div>
-        </div>
-      </div>
-    );
-  }
-
   handleChange = (event) => {
     this.setState( { searchItem: event.target.value } );
 
@@ -75,15 +47,15 @@ class ItemSearch extends Component {
     });
   }
 
-  getOrders = event => {
-    const typeId = this.state.types.find( ele =>
+  getOrders = async event => {
+    const { type_id } = this.state.types.find( ele =>
       ele.name === this.state.searchItem
     );
 
     const query = `
     {
       order(
-        typeId: "${typeId.type_id}"
+        typeId: "${type_id}"
       ) {
         duration,
         is_buy_order,
@@ -108,11 +80,39 @@ class ItemSearch extends Component {
       data: { query }
     };
 
-    axios(options).then(response => {
-      this.props.onOrders(response.data.data.order);
-    });
-
+    await this.props.getOrders(type_id);
+    const response = await axios(options);
+    await this.props.onOrders(response.data.data.order);
   }
+
+  render() {
+    return(
+      <div id="ItemSearch" className="Navbar-item Navbar-right">
+        <div className="input-group">
+        <input type="text"
+               className="form-control"
+               list="ItemSearchList"
+               onChange={this.handleChange}></input>
+        <datalist id="ItemSearchList">
+          {
+            this.state.types.map( (value, index) => {
+              return <option key={index} value={value.name}>
+                     </option>
+            })
+          }
+        </datalist>
+        <div className="input-group-append">
+          <button type="button"
+                  className="btn btn-secondary"
+                  onClick={this.getOrders}>
+            Orders
+          </button>
+        </div>
+        </div>
+      </div>
+    );
+  }
+
 }
 
 class Navbar extends Component {
@@ -122,14 +122,16 @@ class Navbar extends Component {
 
   render() {
     return(
-      <nav id="Navbar" className="container-fluid">
-      <div className="col-sm">
+      <nav id="Navbar">
+      <div>
         <a className="Navbar-item Navbar-left" href="/">
           <img className="logo" src="nix-logo.gif" alt="logo"/>
         </a>
       </div>
-      <div className="col-sm">
-        <ItemSearch onOrders={this.props.onOrders}/>
+      <div>
+        <ItemSearch
+          onOrders={this.props.onOrders}
+          getOrders={this.props.getOrders}/>
       </div>
       </nav>
     );

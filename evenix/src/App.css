@@ -9,3 +9,20 @@
   margin: 5px;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+#body {
+  position: relative;
+  top: 80px;
+  margin: auto;
+}
+
+@media all and (max-width: 516px) {
+  #body {
+    top: 120px;
+  }
+}
+
