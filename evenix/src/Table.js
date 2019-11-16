@@ -3,6 +3,10 @@ import axios from 'axios';
 import './App.css';
 import './Table.css';
 
+import sortBothImg from './images/sort_both.png';
+import sortDownImg from './images/sort_desc.png';
+import sortUpImg from './images/sort_asc.png';
+
 import config from './src.config.json';
 
 class Table extends Component {
@@ -10,6 +14,10 @@ class Table extends Component {
     super(props);
     this.state = {
       orders: [],
+      ordersSort: {
+        isSorted: false,
+        direction: false
+      },
       paginatedOrders: [],
       currPage: [],
       systems: {},
@@ -39,9 +47,27 @@ class Table extends Component {
     });
   }
 
-  sortBy = e => {
-    // TODO
-    console.log(e.target);
+  sortByPrice = e => {
+    if (!this.state.orders || this.state.orders.length === 0) {
+      return;
+    }
+    
+    const direction = !this.state.ordersSort.direction;
+
+    const compare = (key, direction) => (a, b) =>
+      direction
+      ? parseFloat(a[key]) > parseFloat(b[key])
+      : parseFloat(a[key]) < parseFloat(b[key]);
+
+    const orders = this.state.orders;
+    orders.sort(compare('price', direction));
+    this.setState( { orders } );
+    this.setState( {
+      ordersSort: {
+        isSorted: true,
+        direction 
+      }
+    });
   }
 
   render() {
@@ -50,8 +76,18 @@ class Table extends Component {
         <table className="table">
           <thead>
             <tr>
-              <th scope="col" onClick={this.sortBy}>System</th>
-              <th scope="col">Price</th>
+              <th scope="col">System</th>
+              <th scope="col"
+                  onClick={this.sortByPrice}
+                  contentKey="price">
+                    Price
+                    { !this.state.ordersSort.isSorted 
+                    ? <img src={sortBothImg}/>
+                    : this.state.ordersSort.direction
+                        ? <img src={sortDownImg}/>
+                        : <img src={sortUpImg}/>
+                    }
+              </th>
               <th scope="col">Type</th>
               <th scope="col">Volume Remain/Total</th>
               <th scope="col">Location</th>
