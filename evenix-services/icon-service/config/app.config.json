@@ -1,0 +1,9 @@
+{
+  "port": "3005",
+  "env": "prod",
+  "whitelist": [
+    "http://www.eve-nix.com",
+    "http://eve-nix.com"
+  ],
+  "provider": "https://images.evetech.net/types/?/icon"
+}
