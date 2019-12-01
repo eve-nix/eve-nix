@@ -2,3 +2,13 @@
   margin: 10px;
   padding: 8px 20px;
 }
+
+.ItemHeader-container {
+  flex-direction: row;
+  margin-left: 0px;
+}
+
+.ItemHeaderIcon {
+  padding-right: 20px;
+}
+

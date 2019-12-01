@@ -35,8 +35,8 @@ class ItemSearch extends Component {
 
     const options = {
       method: 'POST',
-      baseUrl: config.typesService.host,
-      url: 'http://18.209.117.173:3002/api' || config.typesService.route,
+      baseURL: config.typesService.host,
+      url: config.typesService.route,
       data: { query }
     };
 
@@ -74,9 +74,8 @@ class ItemSearch extends Component {
 
     const options = {
       method: 'POST',
-      baseUrl: config.ordersService.host,
-      url: 'http://18.209.117.173:3001/api' ||
-        config.ordersService.route,
+      baseURL: config.ordersService.host,
+      url: config.ordersService.route,
       data: { query }
     };
 

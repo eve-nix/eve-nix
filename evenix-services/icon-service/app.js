@@ -19,12 +19,13 @@ if ( !(config.env === 'dev') && !process.env.DEV) {
   app.use(cors(corsOptions));
 }
 
-app.get('/type', (req, res) => {
+app.get('/api', (req, res) => {
   if (req.query.type_id) {
     const icon = config.provider.replace('?', req.query.type_id);
     res.send({ icon });
   } else {
-    next('Requests must include a type_id query parameter.');
+    res.status(400);
+    res.send({ error: 'Requests must include a type_id query parameter.' });
   }
 });
 

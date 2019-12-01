@@ -1,14 +1,18 @@
 {
     "ordersService": {
-      "host": "http://localhost:3001",
-      "route": "/api"
+      "host": "http://18.209.117.173:3001/",
+      "route": "/api/"
     },
     "typesService": {
-      "host": "https://localhost:3002",
-      "route": "/api"
+      "host": "http://18.209.117.173:3002/",
+      "route": "/api/"
     },
     "systemsService": {
       "host": "https://localhost:3004",
-      "route": "/api"
+      "route": "/api/"
+    },
+    "iconService": {
+      "host": "http://18.209.117.173:3005/",
+      "route": "/api/"
     }
 }
